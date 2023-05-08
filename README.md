@@ -1,1 +1,1 @@
-# treining-js
+# training-js
