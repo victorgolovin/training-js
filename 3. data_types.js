@@ -9,7 +9,18 @@ const DAY = 08;
 const MONTH = 05;
 const YEAR = 2023;
 
-let date = `${'Today date: '}${DAY}.${MONTH}.${YEAR}`;
+let dayOutputString = DAY;
+let monthOutputString = MONTH;
+
+if (DAY < 10) {
+    dayOutputString = `0${DAY}`
+}
+
+if (MONTH <10) {
+    monthOutputString = `0${MONTH}`
+}
+
+let date = `${'Today date: '}${dayOutputString}.${monthOutputString}.${YEAR}`;
 console.log(date);
 
 // Задание 2
@@ -18,12 +29,11 @@ console.log(date);
 // 2. Вывести в консоль тип данных этой переменной.
 // 3. Вывести в консоль текст "1 Доллар США равно X Российских рублей". Вместо X подставить значение переменной
 
-let dollar_to_ruble_exchange_rate = 76.82;
-let dollar = 1;
+const DOLLAR_TO_RUBLE_EXCHANGE_RATE = 76.82;
+const DOLLAR_TO_RUBLE_EXCHANGE_RATE_TEXT = `1 Доллар США равно ${DOLLAR_TO_RUBLE_EXCHANGE_RATE} Российских рублей`
 
-console.log(typeof dollar_to_ruble_exchange_rate);
+console.log(DOLLAR_TO_RUBLE_EXCHANGE_RATE_TEXT);
 
-console.log(`${dollar} ${'Доллар США равно'} ${dollar_to_ruble_exchange_rate } ${'Российских рублей.'}`);
 
 // Задание 3
 // 1. Придумать и создать переменную, которая будет отражать факт добавления товара 
@@ -31,16 +41,14 @@ console.log(`${dollar} ${'Доллар США равно'} ${dollar_to_ruble_exc
 // 2. Если товар в избранном, вывести в консоль текст "Товар в избранном"
 // 3. Если товар не в избранном, вывести в консоль текст "Товар не в избранном"
 
-const PRODUCT_IN_FAVORITES = true;
-const PRODUCT_NOT_IN_FAVORITES = false;
-let product_in_favorites_question = 'Товар в избранном?';
+const IS_FAVORITES_TEXT = 'Товар в избранном';
+const NOT_FAVORITES_TEXT = 'Товар не в избранном';
+const IS_FAVORITES = false;
 
-console.log(product_in_favorites_question);
-
-if (PRODUCT_IN_FAVORITES > PRODUCT_NOT_IN_FAVORITES) {
-    console.log("Товар в избранном");
+if (IS_FAVORITES) {
+    console.log(IS_FAVORITES_TEXT);
 } else {
-    console.log("Товар не в избранном");
+    console.log(NOT_FAVORITES_TEXT);
 }
 
 // Задание 4
