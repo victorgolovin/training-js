@@ -72,17 +72,18 @@ console.log('-split-')
 // Выведите в консоль результат операции:
     
 // 100 + 100 * 3 - 4 / 2
-
-console.log(100 + 100 * 3 - 4 / 2);
+const result = 100 + 100 * 3 - 4 / 2;
+console.log(result);
     
 // Задание 2: Сложение переменных
 // 1. Создайте переменную a со значением 5
 // 2. Создайте переменную b со значением 3
 // 3. Создайте переменную с, в переменной с должен лежат результат сложения а и b
 
-let a = 5;
-let b = 3;
-let c = a + b;
+const a = 5;
+const b = 3;
+const c = a + b;
+
 console.log(c);
 
     
@@ -93,9 +94,11 @@ console.log(c);
 // 4. Выведите в консоль эквивалентное значение в долларах заданному значению в рублях. 
 // Это можно сделать перемножив курс на значение.
 
-const RUB_USD_CURRENCY_RATE = 77.21;
-let rub = 10000;
-console.log(rub / RUB_USD_CURRENCY_RATE);
+const RUB_USD_CURRENCY_RATE = 0.016;
+const rub = 10000;
+const actulUsdCurrency = rub * RUB_USD_CURRENCY_RATE;
+
+console.log(actulUsdCurrency);
     
     
 // Задание 4: Счетчик
@@ -105,5 +108,7 @@ console.log(rub / RUB_USD_CURRENCY_RATE);
 // 4. Выведите переменную counter в консоль
 
 let counter = 0;
-let newCounter = ++counter;
-console.log(newCounter);
+counter = counter + 1;
+++counter;
+
+console.log(counter);
