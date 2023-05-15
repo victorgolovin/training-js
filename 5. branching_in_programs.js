@@ -154,33 +154,84 @@ switch (userGoal) {
 // Задание 4
 // Создаем приложение для проведение тестов по математике. Нужно попросить пользователя ввести 2 числа и спросить, 
 // какой будет результат сложения чисел. Если ответ правильный, вывести в модальное окно "Правильно", если нет - "Неправильно".
+const FIRST_NUMBER_REQUEST_TEXT = 'Введите первое число';
+const SECOND_NUMBER_REQUEST_TEXT = 'Введите второе число';
+const RESULT_REQUEST_TEXT = 'Результат сложения?'
+const RIGHT_ANSWER_MESSAGE = 'Правильно!';
+const WRONG_ANSWER_MESSAGE = 'Не правильно!';
 
-let sum = first_number + second_number; 
+const FIRST_NUMBER_INPUT = prompt(FIRST_NUMBER_REQUEST_TEXT);
+const SECOND_NUMBER_INPUT = prompt(SECOND_NUMBER_REQUEST_TEXT);
+const sumInput = prompt(RESULT_REQUEST_TEXT);
 
-if (sum === first_number + second_number) {
-    
-    alert(console.log(sum));
+const FIRST_NUMBER = Number(FIRST_NUMBER_INPUT);
+const SECOND_NUMBER = Number(SECOND_NUMBER_INPUT);
+const sumProcessed = Number(sumInput);
+
+const sum = FIRST_NUMBER + SECOND_NUMBER;
+
+if (sum === sumProcessed) {
+    alert(RIGHT_ANSWER_MESSAGE);
 } else {
-    alert('Неправильно');
+    alert(WRONG_ANSWER_MESSAGE);
 }
+
 
 // Задание 5
 // Пользователь вводит в модальное окно число. Нужно определить, число четное или нечетное. Результат вывести на экран.
+const REQUEST_NUMBER = 'Введите число';
+const AN_EVEN_NUMBER_ANSWER = 'Число четное!';
+const NOT_AN_EVEN_NUMBER_ANSWER = 'Число не четное!';
 
+const input = prompt(REQUEST_NUMBER);
+const inputProcessed = Number(input);
 
+if (inputProcessed % 2 === 0) {
+    alert(AN_EVEN_NUMBER_ANSWER);
+} else {
+    alert(NOT_AN_EVEN_NUMBER_ANSWER);
+}
 
 // Задание 6
 // Пользователь вводит в модальное окно порядковый номер месяца. Нужно определить сезон (зима, весна, лето, осень). 
 // Результат вывести на экран.
+const MONTH_REQUEST_TEXT = 'Введите номер месяца';
+const WINTER_SEASON_TEXT = 'Сейчас зима';
+const SPRING_SEASON_TEXT = 'Сейчас весна';
+const SUMMER_SEASON_TEXT = 'Сейчас лето';
+const AUTUMN_SEASON_TEXT = 'Сейчас осень';
+const ERROR_MESSAGE = 'Ошибка';
 
+const month_input = prompt(MONTH_REQUEST_TEXT);
 
+const month = Number(month_input);
 
-if (month_number === 12, 1, 2) {
-    alert('Сейчас Зима');
-} else if (month_number === 3, 4, 5) {
-    alert('Сейчас Весна');
-} else if (month_number === 6, 7, 8) {
-    alert('Сейчас Лето');
-} else if (month_number === 9, 10, 11) {
-    alert('Сейчас Осень');
-} 
+switch (month) {
+    case 12:
+    case 1:
+    case 2:
+        alert(WINTER_SEASON_TEXT);
+        break;
+
+    case 3:
+    case 4:
+    case 5:
+        alert(SPRING_SEASON_TEXT);
+        break;
+
+    case 6:
+    case 7:
+    case 8:
+        alert(SUMMER_SEASON_TEXT);
+        break;
+
+    case 9:
+    case 10:
+    case 11:
+        alert(AUTUMN_SEASON_TEXT);
+        break;
+
+    default:
+        alert(ERROR_MESSAGE);
+        break;
+}
