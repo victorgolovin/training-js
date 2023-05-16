@@ -33,7 +33,7 @@ for (let counter = 1; counter < 100; counter++) {
         continue;
     }
 
-    console.log(counter);
+    // console.log(counter);
 }
 
 
@@ -47,28 +47,34 @@ for (let counter = 1; counter < 100; counter++) {
         break;
     }
 
-    console.log(counter);
+    // console.log(counter);
 }
 
 console.log('---------------------------');
 
 // Задание 1
 // Вывести в консоль числа от -50 до 50.
-const number = -50;
-let numberCounter = number;
 
-for (numberCounter; numberCounter <= 50; numberCounter++) {
-    console.log(numberCounter);
+for (let i = -50; i <= 50; i++) {
+        // console.log(i);
 }
+
 
 // Задание 2
 
 // Вывести в консоль числа от 10 до 0.
 
+for (let i = 10; i >= 0; i--) {
+    // console.log(i);
+}
 
 // Задание 3
 // Вывести в консоль числа от 1 до 100, которые делятся на 7 без остатка.
 
+for (let i = 1; i <= 100; i++) {
+    if (i % 7 !== 0) continue;
+    // console.log(i);
+}
 
 // Задание 4
 // Вывести в консоль таблицу умножения в формате "3 * 3 = 9"
@@ -77,18 +83,41 @@ for (numberCounter; numberCounter <= 50; numberCounter++) {
 
 // Подсказка: внутри цикла используется цикл
 
+for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+        // console.log(`${i} * ${j} = ${i * j}`);
+    }
+}
 
 // Задание 5
 // Пользователь положил на накопительный вклад 1000 рублей под 5% годовых. 
 // Это означает, что через 1 год у него на счету станет 1000 * 5% = 1050 (руб). Еще через 1 год будет 1050 * 5% = 1 102.5 (руб).
 
 // Напишите программу, которая посчитает количество денег на счету через 20 лет и выведет это число в консоль. 
-// В программе дробную часть (копейки) нужно отбрасывать с помощью операции Math.trunc. См. https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc
+// В программе дробную часть (копейки) нужно отбрасывать с помощью операции Math.trunc.
+
+// const INTERES_RATE = 1.05;
+// let account = 1000;
+
+// for (let i = 0; i < 20; i++) {
+//     account = account * INTERES_RATE;
+//     account = Math.trunc(account);
+// }
+
+// console.log(account);
 
 
 // Задание 6
 // С помощью цикла while выведите все четные числа от 1 до 100.
 
+let i = 0;
+
+while (i <= 100) {
+    i++;
+    if (i % 2 === 0) {
+        // console.log(i);
+    }
+}
 
 // Задание 7
 // Пользователь положил на накопительный вклад 1000 рублей под 5% годовых. 
@@ -96,3 +125,16 @@ for (numberCounter; numberCounter <= 50; numberCounter++) {
 // Еще через 1 год будет 1050 * 5% = 1 102.5 (руб).
 
 // Напишите программу, которая посчитает и выведет через сколько лет сумму на вкладе станет больше 1 000 000 рублей.
+
+const INTERES_RATE = 1.05;
+const MILLION_RATE = 1000000;
+
+let account = 1000; 
+let year = 1;
+
+while (account < MILLION_RATE) {
+    account = account * INTERES_RATE;
+    year++;
+}
+
+console.log(year);
