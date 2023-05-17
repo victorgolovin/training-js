@@ -93,21 +93,49 @@ console.log('----------------------')
 //  посчитайте среднее арифметическое и выведите в консоль.
 
 // 1. Сформировать массив
-let numbers = [];
-for (let i = 1; i <= 200; i++) {
-    numbers.push(i);
-}
+// let numbers = [];
+// for (let i = 1; i <= 200; i++) {
+//     numbers.push(i);
+// }
 
-console.log(numbers);
+// // 2. Найти сумму 
+// let sum = 0;
 
-// 2. Найти сумму 
+// for (let i = 0; i < numbers.length; i++) {
+//     sum = sum + numbers[i];
+// }
 
-// 3. Ср. ариф = сумма / количество элементов в массиве
+// console.log(sum);
+
+
+// // 3. Ср. ариф = сумма / количество элементов в массиве
+// const average = sum / numbers.length;
+// console.log(average);
 
 //  Задание 4
 //  Создайте массив из 7 произвольных чисел. 
 //  Найдите максимальный элемент в массиве и его индекс.
+console.log(Math.random());
+// 1. Сгенерировать массив
+const numbers = [];
 
+for (let i = 0; i < 7; i++) {
+    numbers.push(Math.random(i));
+}
+
+// 2. Найти максимальный элемент и его индекс 
+
+let maxIndex = 0;
+let max = [maxIndex];
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < max) continue; 
+    max = numbers[i];
+    maxIndex = i;
+}
+
+console.log(numbers);
+console.log(maxIndex, max);
 
 //  Задание 5
 //  Создайте массив из 10 произвольных чисел. 
