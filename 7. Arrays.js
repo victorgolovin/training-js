@@ -115,32 +115,49 @@ console.log('----------------------')
 //  Задание 4
 //  Создайте массив из 7 произвольных чисел. 
 //  Найдите максимальный элемент в массиве и его индекс.
-console.log(Math.random());
+// console.log(Math.random());
 // 1. Сгенерировать массив
-const numbers = [];
+// const numbers = [];
 
-for (let i = 0; i < 7; i++) {
-    numbers.push(Math.random(i));
-}
+// for (let i = 0; i < 7; i++) {
+//     numbers.push(Math.random(i));
+// }
 
-// 2. Найти максимальный элемент и его индекс 
+// // 2. Найти максимальный элемент и его индекс 
 
-let maxIndex = 0;
-let max = [maxIndex];
+// let maxIndex = 0;
+// let max = [maxIndex];
 
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] < max) continue; 
-    max = numbers[i];
-    maxIndex = i;
-}
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] < max) continue; 
+//     max = numbers[i];
+//     maxIndex = i;
+// }
 
-console.log(numbers);
-console.log(maxIndex, max);
+// console.log(numbers);
+// console.log(maxIndex, max);
 
 //  Задание 5
 //  Создайте массив из 10 произвольных чисел. 
 //  Найдите количество четных элементов в массиве.
 
+// 1. Создать 10 произвольных чисел.
+const numbers = [];
+
+for (let i = 0; i < 10; i++) {
+    numbers.push(Math.random(i));
+}
+
+// 2. Посчитать сколько четных чисел в массиве.
+
+let evenNumberIndex = 2;
+let evenNumber = evenNumberIndex;
+
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % evenNumber) continue;
+}
+
+console.log(numbers);
 
 //  Задание 6
 //  Напишите программу, которая вычисляет максимальную, 
