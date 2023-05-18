@@ -142,31 +142,96 @@ console.log('----------------------')
 //  Найдите количество четных элементов в массиве.
 
 // 1. Создать 10 произвольных чисел.
-const numbers = [];
+// const NUMBERS_COUNT = 10;
+// const numbers = [];
 
-for (let i = 0; i < 10; i++) {
-    numbers.push(Math.random(i));
-}
+// for (let i = 0; i < NUMBERS_COUNT; i++) {
+//     const random = Math.floor(Math.random() * NUMBERS_COUNT); // Math.floor - позволяет выводить целые числа
+//     numbers.push(random);
+// }
 
-// 2. Посчитать сколько четных чисел в массиве.
+// // 2. Посчитать сколько четных чисел в массиве.
 
-let evenNumberIndex = 2;
-let evenNumber = evenNumberIndex;
+// let evenCount = 0;
 
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % evenNumber) continue;
-}
+// for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % 2 !== 0) continue;
+//     evenCount++; // Увеличиваем считчик на один
+// }
 
-console.log(numbers);
+// console.log(numbers);
+// console.log(evenCount);
+
 
 //  Задание 6
 //  Напишите программу, которая вычисляет максимальную, 
 //  минимальную и среднюю температуру за неделю. 
 //  Данные вводятся за каждый день недели с клавиатуры пользователем в массив temperatures.
 
+// const REQUES_TEMPERATURE_TEXT = 'Введите температуру за день:';
+// const DAYS = [
+//     'Понедельник',
+//     'Вторник',
+//     'Среда',
+//     'Четверг',
+//     'Пятница',
+//     'Суббота',
+//     'Воскресенье'
+// ]
+// const temperatures = [];
+
+// for (let i = 0; i < DAYS.length; i++) {
+
+//     const temperatureInput = prompt(`${REQUES_TEMPERATURE_TEXT} ${DAYS[i]}`);
+//     const temperature = Number(temperatureInput); // перевод из строк в числа (NUmber)
+
+//     temperatures.push(temperature);
+// }
+
+// // Теперь вычисляем макс, сред и мин температуру
+
+// let max = temperatures[0];
+// let min = temperatures[0];
+// let mid = 0;
+
+// for (let i = 0; i < temperatures.length; i++) {
+//     if (temperatures[i] > max) max = temperatures[i]; // если текущий элемент массива становится максимальным(то он становится максимальным)
+
+//     if (temperatures[i] < min) min = temperatures[i]; // если текущий элемент массива становится минимальным (то он становится минимальным)
+
+//     mid += temperatures[i];
+// }
+
+// const average = mid / temperatures.length;
+
+
+// console.log(max, min, average);
 
 //  Задание 7
 //  Задайте массив из 9 произвольных имен. 
 //  Выполните перестановку элементов. 
 //  Первый меняется с последним, втором - с предпоследним; и так далее. 
 //  Выполняется ли логика для массива из 10 произвольных имен. Если нет, исправьте.
+
+const names = [
+    'Сергей',
+    'Виктор',
+    'Саша',
+    'Ира',
+    'Света',
+    'Юля',
+    'Паша',
+    'Антон',
+    'Наташа'
+];
+
+const namesReversed = [];
+
+for (let i = 0; i < names.length / 2; i++) {
+    namesReversed[i] = names[names.length - i - 1];
+    namesReversed[names.length - i - 1] = names[i];
+}
+
+console.log(names);
+console.log(namesReversed);
+console.log(names.reverse());
