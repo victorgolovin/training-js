@@ -2,18 +2,18 @@
 // 1. let
 // 2. const
 
-let me = { // обьект
+let me2 = { // обьект
     name: 'Victor', //описывает "ключ значения" , ключ - название например name, а значение 'Victor'
     age: 29,
     isAdult: true,
     heith: 185,
 };
 
-me = { // Можно перезаписывать обьекты как переменные
+me2 = { // Можно перезаписывать обьекты как переменные
     surename: 'Golovin' 
 };
 
-console.log(me);
+console.log(me2);
 
 // или
 
@@ -71,15 +71,15 @@ function createPerson(name, age) {
 }
 
 const newPersone = createPerson('Victor', 29);
-const Rina = createPerson('Rina', 22);
+const Rina1 = createPerson('Rina', 22);
 
-Rina.sayName();
+
 
 console.log(newPersone);
 
 // Перебор свойства обьекта for in
 
-for (const key in Rina) {
+for (const key in Rina1) {
     console.log(key); // Позволяет узнать какие ключи находятся в обьекте
 }
 
@@ -89,10 +89,35 @@ console.log('------------------');
 // Создайте объект me c полями name, age. 
 // Добавьте объекту метод sayHello, который выводит в консоль фразу: "Привет, Я - {name}, мне {age}".
 
+const me = {
+    name: 'Rina',
+    age: 22,
+    sayHello: function() {
+        console.log(`Привет, Я - ${this.name}, мне ${this.age}`);
+    }
+}
+
+me.sayHello();
+
+console.log('------------------');
 
 // Задание 2
 // Создайте функцию createPerson(), которая возвращает объект с полями name, age. 
 // Значения полей передаются в параметрах функции.
+
+function createPerson(name, age) {
+    return {
+        name,
+        age,
+        sayName1: function() {
+            console.log(this.name);
+        }
+    }
+}
+
+const RinaName1 = createPerson('Rina', 22);
+console.log(RinaName1);
+
 
 // Задание 3
 // Создайте массив (7 элементов) из объектов person. 
@@ -102,6 +127,39 @@ console.log('------------------');
 // В результате выведите в консоль фразу "{name} самый мудрый, ему {age}".
 
 
+
+// function PersonARR(arr) {
+//     const All_PERSON = ['Rina', 'Joe', 'Victor', 'Stiv', 'Rebbeka', 'Steffan', 'Rae'];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (createPerson >= this.age) continue;
+
+//         All_PERSON.push(arr[i]);
+//     }
+
+//     return All_PERSON;
+// }
+
+// const NameRina = createPerson('Rina', 22);
+// const NameJoe = createPerson('Joe', 34);
+// const NameVictor = createPerson('Victor', 30);
+// const NameStiv = createPerson('Stiv', 31);
+// const NameRebbeka = createPerson('Rebbeka', 35);
+// const NameSteffan = createPerson('Steffan', 33);
+// const NameRae = createPerson('Rae', 39);
+
+// function createPerson(name, age) {
+//     return {
+//         name,
+//         age,
+//         sayName1: function() {
+//             console.log(this.name);
+//         }
+//     }
+// }
+
+// console.log(PersonARR());
+
 // Задания 4
 // Создайте объект, в котором ключи - дни недели (числа 1 - 7), 
 // а значения - название дня (понедельник - воскресенье).
@@ -109,6 +167,23 @@ console.log('------------------');
 // Напишите программу, которая просит пользователя ввести порядковый номер дня и выводит название дня по номеру. 
 // Например, пользователь ввел 1, выводим "понедельник".
 
+const DAY_WEEKS = {
+    1: 'Понедельник',
+    2: 'Вторник',
+    3: 'Среда',
+    4: 'Четверг',
+    5: 'Пятница',
+    6: 'Суббота',
+    7: 'Воскресенье',
+    SayDayWeek: function() {
+        if (this)
+        return prompt('Введите день недели');
+    }
+}
+
+
+
+DAY_WEEKS.SayDayWeek()
 
 // Задание 5
 // Напишите программу, которая просит пользователя ввести порядковый номер месяца и выводит, 
