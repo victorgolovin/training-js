@@ -92,12 +92,12 @@ console.log('------------------');
 const me = {
     name: 'Rina',
     age: 22,
-    sayHello: function() {
-        console.log(`Привет, Я - ${this.name}, мне ${this.age}`);
+    BiuldHelloText: function() { // Добовляем метод (метод это функция внутри обьекта), делаем функции независимой
+        return `Привет, Я - ${this.name}, мне ${this.age}`; // Возвращаем метод
     }
 }
 
-me.sayHello();
+console.log(me.BiuldHelloText());
 
 console.log('------------------');
 
@@ -105,19 +105,30 @@ console.log('------------------');
 // Создайте функцию createPerson(), которая возвращает объект с полями name, age. 
 // Значения полей передаются в параметрах функции.
 
-function createPerson(name, age) {
+function createPerson({name, age}) { //  Создаем функции в которую передается обьект человека name и age
     return {
         name,
         age,
-        sayName1: function() {
-            console.log(this.name);
+        getName: function() { // К свойствам обьекта лучше обращаться через функции
+            return this.name
+        },
+        getAge: function() {
+            return this.age
+        },
+        BiuldHelloText: function() {
+            return `Привет, Я - ${this.getName()}, мне ${this.getAge()}`; // обращаемся к функция через this
         }
     }
 }
 
-const RinaName1 = createPerson('Rina', 22);
-console.log(RinaName1);
+const RinaName1 = createPerson({ // Создаем функцию в которой мы через обьект ее настраиваем
+    name: 'Rina',
+    age: 22
+});
 
+console.log(RinaName1.BiuldHelloText());
+
+console.log('------------------');
 
 // Задание 3
 // Создайте массив (7 элементов) из объектов person. 
@@ -126,39 +137,43 @@ console.log(RinaName1);
 // Найдите самого старшего человека из массива. 
 // В результате выведите в консоль фразу "{name} самый мудрый, ему {age}".
 
+function biuldText ({ name, age }) {
+    return `${name} самый мудрый, ему ${age}`;  
+}
+
+function getMaxAgeIndex(people) { // Функция принимает в себя массив people в котором она выполняет код поиска самого мудрого человека
+    let index = 0; // Создаем переменную с которой мы будем проверять index в массиве
+    let maxAge = people[0].getAge(); // обращаепся к массиву, getAge() берем из обьекта createPerson()
+
+    for (let i = 0; i < people.length; i++) {
+        if (people[i].getAge() <= maxAge ) continue; // сравниваем массив [i] 
+
+        maxAge = people[i].getAge();
+        index = i; 
+
+    }
+
+    return index;
+}
+
+const people = [ // Массив из обьектов
+    createPerson({ name: 'Rina', age: 22 }), // createPerson() функцию берез из 2 задания
+    createPerson({ name: 'Sasha', age: 25 }), // обязательно указываем как обьект в кгруглых скобках
+    createPerson({ name: 'Rin', age: 29 }),
+    createPerson({ name: 'Victor', age: 234 }),
+    createPerson({ name: 'Bill', age: 20 }),
+    createPerson({ name: 'Rae', age: 33 }),
+    createPerson({ name: 'Diana', age: 35 }),
+];
+
+const maxAgeIndex = getMaxAgeIndex(people);
 
 
-// function PersonARR(arr) {
-//     const All_PERSON = ['Rina', 'Joe', 'Victor', 'Stiv', 'Rebbeka', 'Steffan', 'Rae'];
+console.log(biuldText({
+    name: people[maxAgeIndex].getName(),
+    age: people[maxAgeIndex].getAge(),
+}));
 
-//     for (let i = 0; i < arr.length; i++) {
-//         if (createPerson >= this.age) continue;
-
-//         All_PERSON.push(arr[i]);
-//     }
-
-//     return All_PERSON;
-// }
-
-// const NameRina = createPerson('Rina', 22);
-// const NameJoe = createPerson('Joe', 34);
-// const NameVictor = createPerson('Victor', 30);
-// const NameStiv = createPerson('Stiv', 31);
-// const NameRebbeka = createPerson('Rebbeka', 35);
-// const NameSteffan = createPerson('Steffan', 33);
-// const NameRae = createPerson('Rae', 39);
-
-// function createPerson(name, age) {
-//     return {
-//         name,
-//         age,
-//         sayName1: function() {
-//             console.log(this.name);
-//         }
-//     }
-// }
-
-// console.log(PersonARR());
 
 // Задания 4
 // Создайте объект, в котором ключи - дни недели (числа 1 - 7), 
@@ -167,7 +182,12 @@ console.log(RinaName1);
 // Напишите программу, которая просит пользователя ввести порядковый номер дня и выводит название дня по номеру. 
 // Например, пользователь ввел 1, выводим "понедельник".
 
-const DAY_WEEKS = {
+function getDayIdFromUser() { // называем функцию по смыслу (получаем id от пользователя)
+    const input = prompt('Введите номер дня недели'); // внутри функция забирает работу с инпутом
+    return Number(input); // а затем отдает ее 
+}
+
+const DAY_WEEKS_BY_ID = { // Создаем обьект в котором ключи это порядковый номер, а значение названия дня недели
     1: 'Понедельник',
     2: 'Вторник',
     3: 'Среда',
@@ -175,19 +195,55 @@ const DAY_WEEKS = {
     5: 'Пятница',
     6: 'Суббота',
     7: 'Воскресенье',
-    SayDayWeek: function() {
-        if (this)
-        return prompt('Введите день недели');
-    }
-}
+};
 
+const dayId = getDayIdFromUser(); // смысл dayId, что мы данные получаем из getDayIdFromUser(), в которой мы уже описали логику
 
-
-DAY_WEEKS.SayDayWeek()
+console.log(DAY_WEEKS_BY_ID[dayId]); // В такой записи мы можем обратится к обьекту через константу в квадраных скобках
 
 // Задание 5
 // Напишите программу, которая просит пользователя ввести порядковый номер месяца и выводит, 
 // какой это сезон (зима, весна, лето, осень). Используйте подход из задания 4.
+
+const MONTH_ERROR = 'Такого месяца нет';
+const MONTH_REQUEST_TEXT = 'Введите номер месяца';
+
+function getMonthIdFromUser() {
+    const inputMonth = prompt(MONTH_REQUEST_TEXT);
+    return Number(inputMonth);
+}
+
+function getMonthTitle(id) { // создаем функция которая получает id месяца
+    if (!SEASON_BY_MONTH[id]) { // создаем условие что если юзер ввел другой номер(не месяца)
+        return MONTH_ERROR; // возвращает сообщение 
+    }                               // если юзер ввел все правильно
+
+    return SEASON_BY_MONTH[id]; // возвращаем функцию с id
+}
+
+const WINTER = 'Winter';
+const SPRING = 'Spring';
+const SUMMER = 'Summer';
+const AUTUMN = 'Autumn';
+
+const SEASON_BY_MONTH = {
+    12: WINTER,
+    1: WINTER,
+    2: WINTER,
+    3: SPRING,
+    4: SPRING,
+    5: SPRING,
+    6: SUMMER,
+    7: SUMMER,
+    8: SUMMER,
+    9: AUTUMN,
+    10: AUTUMN,
+    11: AUTUMN,
+}
+  
+
+const MonthId = getMonthIdFromUser();
+console.log(getMonthTitle(MonthId));
 
 
 // Задание 6
@@ -198,3 +254,32 @@ DAY_WEEKS.SayDayWeek()
 
 // Для того, чтобы определить ссылку на изображение зайдите на Avito, 
 // откройте Dev Chrome Tools (вкладка Elements), найдите в html разметки нужный элемент и скопируйте свойство src.
+
+function createStory( {title, imgSrc, isViewed} ) { // 2. Создаем функцию в оторой будет обьект с титулом, ссылкой и статусом
+    return {
+        title,
+        imgSrc,
+        isViewed,
+    }
+}
+
+
+const stories = [ // 1. Обьявляем массив сторис
+    createStory({
+        title: 'Путишествие с детьми', 
+        imgSrc: 'https://cover.imglib.info/uploads/cover/lore-olympus-/cover/kNqbn3qDopG0_250x350.jpg',
+        isViewed: true
+    }),
+    createStory({
+        title: 'Вакансии без опыта', 
+        imgSrc: 'https://cover.imglib.info/uploads/cover/lore-olympus-/cover/kNqbn3qDopG0_250x350.jpg',
+        isViewed: false
+    }),
+    createStory({
+        title: 'Авито строит дом', 
+        imgSrc: 'https://cover.imglib.info/uploads/cover/lore-olympus-/cover/kNqbn3qDopG0_250x350.jpg',
+        isViewed: false
+    })
+];
+
+console.log(stories);
