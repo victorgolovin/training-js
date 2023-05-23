@@ -18,4 +18,6 @@ if (action === true) {
 
 console.log('Тарелки положить на место');
 
+
+console.log('Уйти с кухни');
 console.log('Уйти с кухни');
